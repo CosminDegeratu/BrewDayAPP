@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ad7ebe3b5fff48f695176a6edc1f80de" Name="Diagram1" ZoomLevel="85">
+        <EntityTypeShape EntityType="BrewDayDBModel.C__MigrationHistory" Width="1.75" PointX="0.5" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BrewDayDBModel.AspNetRoles" Width="1.5" PointX="9.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BrewDayDBModel.AspNetUserClaims" Width="1.75" PointX="9.625" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BrewDayDBModel.AspNetUserLogins" Width="1.75" PointX="9.625" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BrewDayDBModel.AspNetUsers" Width="1.5" PointX="7.25" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BrewDayDBModel.Brews" Width="1.5" PointX="0.5" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BrewDayDBModel.IngredientRecipe" Width="1.75" PointX="0.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BrewDayDBModel.Ingredients" Width="1.5" PointX="3.25" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BrewDayDBModel.Recipies" Width="1.5" PointX="3.375" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BrewDayDBModel.ShoppingList" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="BrewDayDBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="BrewDayDBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="BrewDayDBModel.FK_Brews_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="BrewDayDBModel.FK_Recipies_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="BrewDayDBModel.FK_Brews_ToTableRecipies" ManuallyRouted="false" />
+        <AssociationConnector Association="BrewDayDBModel.FK_IngredientRecipe_ToTableIngredients" ManuallyRouted="false" />
+        <AssociationConnector Association="BrewDayDBModel.FK_IngredientRecipe_ToTableRecipies" ManuallyRouted="false" />
+        <AssociationConnector Association="BrewDayDBModel.FK_ShoppingList_ToTableIngredients" ManuallyRouted="false" />
+        <AssociationConnector Association="BrewDayDBModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
