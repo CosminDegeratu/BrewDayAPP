@@ -1,0 +1,66 @@
+﻿@model BrewDayAPP.Brews
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Brews</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BatchSize)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BatchSize)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Notes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Notes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateBrew)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateBrew)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AspNetUsers.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUsers.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Recipies.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Recipies.Description)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,58 @@
+﻿@model BrewDayAPP.Recipies
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Recipies</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AspNetUsers.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUsers.Email)
+        </dd>
+
+    </dl>
+</div>
+<table>
+    @foreach (var item in Model.IngredientRecipe)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AbsolutQuantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AbsolutUnitMeasure)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdIngredients)
+            </td>
+        </tr>
+    }
+</table>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

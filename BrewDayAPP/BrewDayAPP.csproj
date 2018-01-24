@@ -207,9 +207,12 @@
       <DependentUpon>EF_DB.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BrewsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IngredientRecipesController.cs" />
     <Compile Include="Controllers\IngredientsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\RecipiesController.cs" />
     <Compile Include="C__MigrationHistory.cs">
       <DependentUpon>EF_DB.tt</DependentUpon>
     </Compile>
@@ -332,6 +335,21 @@
     <Content Include="Views\Ingredients\Details.cshtml" />
     <Content Include="Views\Ingredients\Edit.cshtml" />
     <Content Include="Views\Ingredients\Index.cshtml" />
+    <Content Include="Views\Brews\Create.cshtml" />
+    <Content Include="Views\Brews\Delete.cshtml" />
+    <Content Include="Views\Brews\Details.cshtml" />
+    <Content Include="Views\Brews\Edit.cshtml" />
+    <Content Include="Views\Brews\Index.cshtml" />
+    <Content Include="Views\IngredientRecipes\Create.cshtml" />
+    <Content Include="Views\IngredientRecipes\Delete.cshtml" />
+    <Content Include="Views\IngredientRecipes\Details.cshtml" />
+    <Content Include="Views\IngredientRecipes\Edit.cshtml" />
+    <Content Include="Views\IngredientRecipes\Index.cshtml" />
+    <Content Include="Views\Recipies\Create.cshtml" />
+    <Content Include="Views\Recipies\Delete.cshtml" />
+    <Content Include="Views\Recipies\Details.cshtml" />
+    <Content Include="Views\Recipies\Edit.cshtml" />
+    <Content Include="Views\Recipies\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
