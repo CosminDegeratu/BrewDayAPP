@@ -37,10 +37,10 @@ namespace BrewDayAPP.Controllers
         }
 
         // GET: IngredientRecipes/Create
-        public ActionResult Create()
+        public ActionResult Create(int? recipiesID)
         {
             ViewBag.IdIngredients = new SelectList(db.Ingredients, "ID", "Description");
-            ViewBag.IdRecipes = new SelectList(db.Recipies, "ID", "Description");
+            ViewBag.IdRecipes = new SelectList(db.Recipies.Where(x=>x.ID==recipiesID), "ID", "Description");
             return View();
         }
 

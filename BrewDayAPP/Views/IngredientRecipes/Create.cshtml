@@ -55,9 +55,9 @@
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+    <div>
+        @Html.ActionLink("Back to List", "Index", new { Controller = "IngredientRecipes", action = "Index", recipiesID = Request.Params["recipiesID"] })
+    </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
