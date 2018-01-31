@@ -1,8 +1,11 @@
-﻿@model IEnumerable <BrewDayAPP.IngredientToSubstract>
+﻿@model IEnumerable<BrewDayAPP.IngredientToSubstract>
 
 @{
     ViewBag.Title = "Ingredients to substract";
 }
+
+
+
 
 <table class="table">
     <tr>
@@ -38,34 +41,34 @@
     </tr>
     @foreach (var item in Model)
     {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.IdRecipie)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IdIngredient)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UnitMeasure)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Quantity)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AbsolutQuantity)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BatchSize)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.QuantityAfterBrew)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Threshold)
-        </td>
-    </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdRecipie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdIngredient)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitMeasure)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AbsolutQuantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BatchSize)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuantityAfterBrew)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Threshold)
+            </td>
+        </tr>
     }
 </table>

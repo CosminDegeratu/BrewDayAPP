@@ -6,11 +6,23 @@
 
 <h2>Create</h2>
 
+<script type="text/javascript" src="~/Scripts/jquery-1.10.2.js"></script>
+<script type="text/javascript">
 
-@using (Html.BeginForm()) 
+    $(document).ready(function () {
+        $("#IdRecipies").change(function () {
+            var idRecipies = $("#IdRecipies").val();
+            var batchS = $("#BatchSize").val();
+            //alert(idRecipies + " AAA " + batchS);
+            $("#partialPlaceHolder").load('@(Url.Action("_Index", "IngredientsToSubstract", null, Request.Url.Scheme))?recipiesID=' + idRecipies + "&batchSize=" + batchS);
+        });
+    });
+</script>
+
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Brews</h4>
         <hr />
@@ -67,6 +79,9 @@
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>
+        </div>
+        <div id="partialPlaceHolder" style="border: 1px solid;">
+            @*@Html.Action("_Index", new { Controller = "IngredientsToSubstract", action = "_Index", recipiesID = 1, batchSize = 3 })*@
         </div>
     </div>
 }
