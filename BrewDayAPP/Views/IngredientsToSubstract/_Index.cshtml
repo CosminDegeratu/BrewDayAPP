@@ -1,0 +1,71 @@
+﻿@model IEnumerable <BrewDayAPP.IngredientToSubstract>
+
+@{
+    ViewBag.Title = "Ingredients to substract";
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdRecipie)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdIngredient)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UnitMeasure)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AbsolutQuantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BatchSize)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QuantityAfterBrew)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Threshold)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdRecipie)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdIngredient)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UnitMeasure)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AbsolutQuantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BatchSize)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QuantityAfterBrew)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Threshold)
+        </td>
+    </tr>
+    }
+</table>
