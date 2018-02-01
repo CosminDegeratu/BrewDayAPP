@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -53,6 +54,21 @@ namespace BrewDayAPP.Controllers
         {
             if (ModelState.IsValid)
             {
+                //recupera dal model parametri che mi servono per la spUpdateQuantityIngredients
+                var recipiesId = brews.IdRecipies;
+                var batchSize = brews.BatchSize;
+
+                //lancia la spUpdateQuantityIngredients
+                var connection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
+                var command = new SqlCommand("spUpdateQuantityIngredients", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@recipiesId", recipiesId);
+                command.Parameters.AddWithValue("@batchSize", batchSize);
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+
+                //lancia inserimento di un nuovo record per Brews
                 db.Brews.Add(brews);
                 db.SaveChanges();
                 return RedirectToAction("Index");
