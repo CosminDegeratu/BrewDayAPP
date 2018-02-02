@@ -214,6 +214,7 @@
     <Compile Include="Controllers\IngredientsToSubstractController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RecipiesController.cs" />
+    <Compile Include="Controllers\ShoppingListsController.cs" />
     <Compile Include="C__MigrationHistory.cs">
       <DependentUpon>EF_DB.tt</DependentUpon>
     </Compile>
@@ -353,6 +354,11 @@
     <Content Include="Views\Recipies\Edit.cshtml" />
     <Content Include="Views\Recipies\Index.cshtml" />
     <Content Include="Views\IngredientsToSubstract\_Index.cshtml" />
+    <Content Include="Views\ShoppingLists\Create.cshtml" />
+    <Content Include="Views\ShoppingLists\Delete.cshtml" />
+    <Content Include="Views\ShoppingLists\Details.cshtml" />
+    <Content Include="Views\ShoppingLists\Edit.cshtml" />
+    <Content Include="Views\ShoppingLists\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
