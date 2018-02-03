@@ -15,8 +15,8 @@ namespace BrewDayAPP.Controllers
         // GET: Recipies
         public ActionResult Index()
         {
-            var userID = User.Identity.GetUserId();
             var recipies = db.Recipies.Include(r => r.AspNetUsers);
+            var userID = User.Identity.GetUserId();
             if (User.Identity.GetUserName().Equals(ConfigurationManager.AppSettings["SuperUser"]))
             {
                 //visualizza tutto

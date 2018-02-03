@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.Entity;
 using System.Data.SqlClient;
@@ -8,6 +9,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BrewDayAPP;
+using Microsoft.AspNet.Identity;
 
 namespace BrewDayAPP.Controllers
 {
@@ -19,7 +21,16 @@ namespace BrewDayAPP.Controllers
         public ActionResult Index()
         {
             var brews = db.Brews.Include(b => b.AspNetUsers).Include(b => b.Recipies);
-            return View(brews.ToList());
+            var userID = User.Identity.GetUserId();
+            if (User.Identity.GetUserName().Equals(ConfigurationManager.AppSettings["SuperUser"]))
+            {
+                return View(brews.ToList());
+            }
+            else
+            {
+                return View(brews.Where(x=>x.UserId==userID).ToList());
+            }
+                
         }
 
         // GET: Brews/Details/5
@@ -40,8 +51,17 @@ namespace BrewDayAPP.Controllers
         // GET: Brews/Create
         public ActionResult Create()
         {
-            ViewBag.UserId = new SelectList(db.AspNetUsers, "Id", "Email");
-            ViewBag.IdRecipies = new SelectList(db.Recipies, "ID", "Description");
+            var userID = User.Identity.GetUserId();
+            if (User.Identity.GetUserName().Equals(ConfigurationManager.AppSettings["SuperUser"]))
+            {
+                ViewBag.UserId = new SelectList(db.AspNetUsers, "Id", "Email");
+                ViewBag.IdRecipies = new SelectList(db.Recipies, "ID", "Description");
+            }
+            else
+            {
+                ViewBag.UserId = new SelectList(db.AspNetUsers.Where(x=>x.Id==userID), "Id", "Email");
+                ViewBag.IdRecipies = new SelectList(db.Recipies.Where(x=>x.UserId==userID), "ID", "Description");
+            }
             return View();
         }
 
