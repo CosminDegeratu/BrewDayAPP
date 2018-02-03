@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Configuration;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using BrewDayAPP;
+using Microsoft.AspNet.Identity;
 
 namespace BrewDayAPP.Controllers
 {
@@ -17,8 +15,19 @@ namespace BrewDayAPP.Controllers
         // GET: Recipies
         public ActionResult Index()
         {
+            var userID = User.Identity.GetUserId();
             var recipies = db.Recipies.Include(r => r.AspNetUsers);
-            return View(recipies.ToList());
+            if (User.Identity.GetUserName().Equals(ConfigurationManager.AppSettings["SuperUser"]))
+            {
+                //visualizza tutto
+                return View(recipies.ToList());
+            }
+            else
+            {   
+                //filtra in base all'utente loggato
+                return View(recipies.Where(x => x.UserId == userID).ToList());
+            }
+
         }
 
         // GET: Recipies/Details/5
@@ -28,6 +37,7 @@ namespace BrewDayAPP.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Recipies recipies = db.Recipies.Find(id);
             if (recipies == null)
             {
@@ -39,7 +49,15 @@ namespace BrewDayAPP.Controllers
         // GET: Recipies/Create
         public ActionResult Create()
         {
-            ViewBag.UserId = new SelectList(db.AspNetUsers, "Id", "Email");
+            var userID = User.Identity.GetUserId();
+            if (User.Identity.GetUserName().Equals(ConfigurationManager.AppSettings["SuperUser"]))
+            {
+                ViewBag.UserId = new SelectList(db.AspNetUsers, "Id", "Email");
+            }
+            else
+            {
+                ViewBag.UserId = new SelectList(db.AspNetUsers.Where(x => x.Id == userID), "Id", "Email");
+            }
             return View();
         }
 
@@ -73,7 +91,15 @@ namespace BrewDayAPP.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.UserId = new SelectList(db.AspNetUsers, "Id", "Email", recipies.UserId);
+            var userID = User.Identity.GetUserId();
+            if (User.Identity.GetUserName().Equals(ConfigurationManager.AppSettings["SuperUser"]))
+            {
+                ViewBag.UserId = new SelectList(db.AspNetUsers, "Id", "Email", recipies.UserId);
+            }
+            else
+            {
+                ViewBag.UserId = new SelectList(db.AspNetUsers.Where(x => x.Id == userID), "Id", "Email", recipies.UserId);
+            }
             return View(recipies);
         }
 
