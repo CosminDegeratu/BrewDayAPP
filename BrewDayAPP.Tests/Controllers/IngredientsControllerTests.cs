@@ -1,8 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Web.Mvc;
-using System.Net;
-using System;
-using BrewDayAPP;
 using System.Linq;
 
 namespace BrewDayAPP.Controllers.Tests
@@ -17,7 +14,7 @@ namespace BrewDayAPP.Controllers.Tests
         {
 
             // Arrange
-            HomeController controller = new HomeController();
+            IngredientsController controller = new IngredientsController();
 
             // Act
             ViewResult result = controller.Index() as ViewResult;
