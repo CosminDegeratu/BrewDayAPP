@@ -13,16 +13,51 @@ namespace BrewDayAPP.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Ingredients()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Ingredients page.";
 
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Recipies()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Recipies page.";
+
+            return View();
+        }
+
+        public ActionResult IngredientRecipes()
+        {
+            ViewBag.Message = "IngredientRecipes page.";
+
+            return View();
+        }
+
+        public ActionResult Brews()
+        {
+            ViewBag.Message = "Brews page.";
+
+            return View();
+        }
+
+        public ActionResult RecipiesOfTheDay()
+        {
+            ViewBag.Message = "RecipiesOfTheDay page.";
+
+            return View();
+        }
+
+        public ActionResult IngredientsToSubstract()
+        {
+            ViewBag.Message = "IngredientsToSubstract page.";
+
+            return View();
+        }
+
+        public ActionResult ShoppingLists()
+        {
+            ViewBag.Message = "ShoppingLists page.";
 
             return View();
         }
