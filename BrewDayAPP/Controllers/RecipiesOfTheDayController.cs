@@ -39,7 +39,7 @@ namespace BrewDayAPP.Controllers
                 command.ExecuteNonQuery();
                 connection.Close();
             }
-            var query = "select ID,[Description], [batchSize],Rate from RecipiesofTheDay";
+            var query = "select ID,[Description], [batchSize],Rate from RecipiesofTheDay where batchSize>1";
             IEnumerable<RecipiesOfTheDay> data = db.Database.SqlQuery<RecipiesOfTheDay>(query);
             return PartialView(data.ToList());
         }
