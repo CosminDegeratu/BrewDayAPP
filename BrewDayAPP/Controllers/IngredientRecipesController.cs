@@ -55,7 +55,7 @@ namespace BrewDayAPP.Controllers
             {
                 db.IngredientRecipe.Add(ingredientRecipe);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Recipies");
             }
 
             ViewBag.IdIngredients = new SelectList(db.Ingredients, "ID", "Description", ingredientRecipe.IdIngredients);
@@ -91,7 +91,7 @@ namespace BrewDayAPP.Controllers
             {
                 db.Entry(ingredientRecipe).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Recipies");
             }
             ViewBag.IdIngredients = new SelectList(db.Ingredients, "ID", "Description", ingredientRecipe.IdIngredients);
             ViewBag.IdRecipes = new SelectList(db.Recipies, "ID", "Description", ingredientRecipe.IdRecipes);
@@ -121,7 +121,7 @@ namespace BrewDayAPP.Controllers
             IngredientRecipe ingredientRecipe = db.IngredientRecipe.Find(id);
             db.IngredientRecipe.Remove(ingredientRecipe);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Recipies");
         }
 
         protected override void Dispose(bool disposing)
