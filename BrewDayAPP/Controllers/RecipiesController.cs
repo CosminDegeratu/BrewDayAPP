@@ -141,6 +141,11 @@ namespace BrewDayAPP.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Recipies recipies = db.Recipies.Find(id);
+            //cancella tutti gli ingredienti correlati
+            var items = db.IngredientRecipe.Where(item => item.IdRecipes == id);
+            foreach (var item in items)
+                db.IngredientRecipe.Remove(item);
+
             db.Recipies.Remove(recipies);
             db.SaveChanges();
             return RedirectToAction("Index");
